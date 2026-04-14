@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "poste": "Chef de Projet Multimédia / Chargé de Communication Interne",
+    "entreprise": "Carrier Transicold",
+    "type": "Alternance",
+    "debut": "Oct 2023",
+    "fin": "Sep 2025",
+    "annee": 2023,
+    "tags": ["Figma", "Agile", "Adobe", "e-learning", "Communication"],
+    "description": [
+      "Créer et adapter plus de 200 visuels digitaux à destination de 2500 techniciens multiculturels.",
+      "Produire et publier des newsletters pour 25 formateurs répartis dans le monde.",
+      "Collaborer en anglais avec différents collaborateurs et experts métiers.",
+      "Réaliser la refonte du design du site e-learning.",
+      "Augmenter à hauteur de 25% le taux de satisfaction des utilisateurs.",
+      "Créer un template et un gabarit pour les miniatures de plus de 2000 cours de formation."
+    ]
+  },
+  {
+    "id": 2,
+    "poste": "Chef de Projet Digital",
+    "entreprise": "Coiff'idis",
+    "type": "Alternance",
+    "debut": "Août 2022",
+    "fin": "Sep 2023",
+    "annee": 2022,
+    "tags": ["Prestashop", "SEO", "Gestion de projet", "Marketing"],
+    "description": [
+      "Actualiser des informations de la base de données d'environ 1000 produits.",
+      "Réaliser un template à destination de 250 partenaires.",
+      "Participer à des réunions permettant d'ajuster les parcours utilisateurs.",
+      "Suivre les KPI's de satisfaction client et fournisseur.",
+      "Modifier les photographies principales de plus de 500 produits."
+    ]
+  },
+  {
+    "id": 3,
+    "poste": "Développeur Full-Stack",
+    "entreprise": "APPePlay Studio",
+    "type": "Stage",
+    "debut": "Jan 2022",
+    "fin": "Fév 2022",
+    "annee": 2022,
+    "tags": ["React", "Firebase", "SCSS", "Agile"],
+    "description": [
+      "Réaliser la partie enregistrement pour l'application Freestyle Drum Machine.",
+      "Travailler avec la méthode Agile.",
+      "Gérer les données utilisateurs avec Firebase.",
+      "Effectuer des tests et des validations pour assurer la qualité des applicatifs."
+    ]
+  },
+  {
+    "id": 4,
+    "poste": "Développeur Full-Stack",
+    "entreprise": "APPePlay Studio",
+    "type": "Stage",
+    "debut": "Mai 2021",
+    "fin": "Juin 2021",
+    "annee": 2021,
+    "tags": ["React", "SCSS", "Firebase", "Agile"],
+    "description": [
+      "Réaliser un site de vulgarisation pour une association.",
+      "Utiliser le langage React pour la conception du site web.",
+      "Créer en SCSS l'aspect visuel du site web.",
+      "Gérer les données utilisateurs avec Firebase."
+    ]
+  },
+  {
+    "id": 5,
+    "poste": "Responsable Communication & Rédaction",
+    "entreprise": "Club Pongiste Quevillais",
+    "type": "Service Civique",
+    "debut": "Déc 2021",
+    "fin": "Août 2022",
+    "annee": 2021,
+    "tags": ["Communication", "Réseaux sociaux", "Adobe", "Canva"],
+    "description": [
+      "Mettre en ligne des articles et résultats du week-end sur le site du club.",
+      "Créer une ligne éditoriale pour les réseaux sociaux.",
+      "Réaliser et publier des reportages photographiques lors d'événements.",
+      "Présenter les chiffres statistiques lors des réunions de comité directeur.",
+      "Encadrer des groupes jeunes à l'entraînement et au coaching en compétition."
+    ]
+  }
+]

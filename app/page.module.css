@@ -1,0 +1,195 @@
+.hero {
+    min-height: auto;
+    padding-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8rem 4rem 4rem;
+    gap: 4rem;
+    position: relative;
+}
+
+.heroContent {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--or);
+    margin-bottom: 1rem;
+}
+
+.h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+}
+
+.heroTitre {
+    font-size: 1.2rem;
+    background: linear-gradient(90deg, var(--or), var(--rose));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.accroche {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 480px;
+    margin-bottom: 2rem;
+}
+
+.liens {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btnSecondary {
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    border: 0.5px solid var(--bordure);
+    background: var(--surface);
+    color: var(--texte);
+    font-size: 0.85rem;
+    transition: border-color 0.2s;
+}
+
+.btnSecondary:hover {
+    border-color: var(--or);
+    color: var(--or);
+}
+
+.btnPrimary {
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--or), var(--rose));
+    color: var(--fond);
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: opacity 0.2s;
+}
+
+.btnPrimary:hover {
+    opacity: 0.85;
+}
+
+.heroImage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.heroImage img {
+    width: 100%;
+    max-width: 420px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 0.5px solid var(--bordure);
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.shape1 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(221, 168, 83, 0.4);
+    border-radius: 12px;
+    top: 15%;
+    left: 5%;
+    animation: float 8s ease-in-out infinite;
+    transform: rotate(20deg);
+}
+
+.shape2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(236, 72, 153, 0.15);
+    border: 1.5px solid rgba(236, 72, 153, 0.4);
+    border-radius: 50%;
+    bottom: 20%;
+    left: 65%;
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.shape3 {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(99, 102, 241, 0.4);
+    top: 15%;
+    right: 22%;
+    animation: float 12s ease-in-out infinite;
+    transform: rotate(45deg);
+}
+
+.shape4 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: rgba(221, 168, 83, 0.2);
+    border: 1.5px solid rgba(221, 168, 83, 0.5);
+    border-radius: 4px;
+    bottom: 30%;
+    left: 8%;
+    animation: float 9s ease-in-out infinite;
+    transform: rotate(10deg);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
+    50% { transform: translateY(-20px) rotate(var(--rot, 0deg)); }
+}
+
+/* Section Tags compétences*/
+
+.section {
+    padding: 4rem;
+
+}
+
+.sectionTitre {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+}
+
+.tagsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.tag {
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    border: 0.5px solid var(--bordure);
+    background: var(--surface);
+    color: var(--texte);
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.tag:hover {
+    border-color: var(--or);
+    color: var(--or);
+}
