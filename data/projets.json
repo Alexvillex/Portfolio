@@ -5,6 +5,7 @@
     "tagline": "Une app mobile pour planifier ses tâches, partout et tout le temps.",
     "description": "Application mobile développée avec React Native et Expo. Gestion complète des tâches avec plusieurs vues, synchronisation des données via Firebase et interface pensée pour une utilisation fluide sur iOS et Android.",
     "tags": ["React Native", "Expo", "Firebase", "TypeScript"],
+    "categorie": "Mobile",
     "statut": "Terminé",
     "type": "Mobile",
     "github": "https://github.com/Alexvillex/ToDoux",
@@ -16,6 +17,7 @@
     "tagline": "Explorer l'univers Pokémon à travers une interface moderne.",
     "description": "Application web qui consomme l'API PokéAPI pour afficher les informations détaillées de chaque pokémon — stats, types, évolutions. Recherche en temps réel et filtrage par type.",
     "tags": ["Angular", "TypeScript", "API REST", "CSS"],
+    "categorie": "Web",
     "statut": "Terminé",
     "type": "Web",
     "github": "https://github.com/Alexvillex/angular-pokedex-app",
@@ -27,6 +29,7 @@
     "tagline": "Une application web robuste construite avec le framework Symfony.",
     "description": "Application web développée en PHP avec le framework Symfony. Architecture MVC, gestion de base de données et interface utilisateur responsive.",
     "tags": ["PHP", "Symfony", "MySQL", "Twig"],
+    "categorie": "Web",
     "statut": "Terminé",
     "type": "Web",
     "github": "https://github.com/Alexvillex/symfony_app",
@@ -38,6 +41,7 @@
     "tagline": "L'IA qui lit internet à ta place et garde ce qui compte vraiment.",
     "description": "Module intégré au portfolio qui agrège des articles tech depuis plusieurs sources RSS, les analyse via une IA pour scorer leur pertinence, et affiche uniquement les contenus les plus utiles. Zéro bruit, que de la valeur.",
     "tags": ["Python", "FastAPI", "API Claude", "RSS", "Next.js"],
+    "categorie": "IA",
     "statut": "En cours",
     "type": "IA",
     "github": "https://github.com/Alexvillex",
@@ -49,9 +53,10 @@
     "tagline": "Le portfolio que vous êtes en train de consulter.",
     "description": "Portfolio personnel développé avec Next.js, TypeScript et Three.js. Scène 3D interactive, données en JSON, déployé sur Vercel.",
     "tags": ["Next.js", "TypeScript", "Three.js", "CSS Modules"],
+    "categorie": "Web",
     "statut": "En cours",
     "type": "Web",
     "github": "https://github.com/Alexvillex",
-    "demo": "https://alexisvilly.vercel.app"
+    "demo": "https://portfolio-fqjk.vercel.app/"
   }
 ]

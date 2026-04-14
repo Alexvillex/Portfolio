@@ -11,7 +11,7 @@ export default function Projets() {
           {projets.map((projets) => (
             <div key={projets.id} className={styles.card}>
               <div className={styles.cardHeader}>
-                <span className={styles.type}>{projets.type}</span>
+                <span className={styles.type}>{projets.categorie}</span>
                 <span className={styles.statut}>{projets.statut}</span>
               </div>
               <h2 className={styles.cardTitre}>{projets.titre}</h2>
