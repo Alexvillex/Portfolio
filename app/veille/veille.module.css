@@ -1,0 +1,182 @@
+/* --------------------------- Section --------------------------- */
+
+.section {
+  padding:  8rem 4rem 4rem;
+  position: relative;
+  z-index:  1;
+}
+
+.label {
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.8rem;
+  letter-spacing: 0.2em;
+  color:          var(--or);
+  margin-bottom:  1rem;
+}
+
+.titre {
+  font-size:      3rem;
+  font-weight:    800;
+  letter-spacing: -0.02em;
+  margin-bottom:  1rem;
+}
+
+.intro {
+  font-size:     0.95rem;
+  color:         var(--muted);
+  margin-bottom: 3rem;
+  line-height:   1.7;
+}
+
+/* --------------------------- États --------------------------- */
+
+.state {
+  color:       var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size:   0.9rem;
+}
+
+.stateError {
+  color:       var(--rose);
+  font-family: 'JetBrains Mono', monospace;
+  font-size:   0.9rem;
+}
+
+/* --------------------------- Grille --------------------------- */
+
+.grid {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   1.25rem;
+}
+
+/* --------------------------- Carte article --------------------------- */
+
+.card {
+  background:     var(--surface);
+  border:         0.5px solid var(--bordure);
+  border-radius:  12px;
+  padding:        1.5rem;
+  display:        flex;
+  flex-direction: column;
+  gap:            0.75rem;
+  transition:     border-color 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: rgba(221, 168, 83, 0.4);
+  transform:    translateY(-2px);
+}
+
+/* --------------------------- En-tête --------------------------- */
+
+.cardHeader {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+}
+
+/* Nom de la source en monospace doré */
+.source {
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.75rem;
+  color:          var(--or);
+  letter-spacing: 0.08em;
+}
+
+/* Score Mistral — badge indigo */
+.score {
+  font-family:   'JetBrains Mono', monospace;
+  font-size:     0.75rem;
+  padding:       2px 10px;
+  border-radius: 999px;
+  background:    rgba(99, 102, 241, 0.1);
+  border:        0.5px solid rgba(99, 102, 241, 0.3);
+  color:         #a5b4fc;
+}
+
+/* --------------------------- Contenu --------------------------- */
+
+.cardTitre {
+  font-size:   1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color:       var(--texte);
+}
+
+/* Résumé généré par Mistral */
+.resume {
+  font-size:   0.875rem;
+  color:       var(--muted);
+  line-height: 1.7;
+  flex:        1;
+}
+
+/* --------------------------- Footer --------------------------- */
+
+.cardFooter {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  margin-top:      0.5rem;
+  padding-top:     0.75rem;
+  border-top:      0.5px solid var(--bordure);
+}
+
+.date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size:   0.75rem;
+  color:       var(--muted);
+}
+
+/* Lien vers l'article original */
+.lire {
+  font-size:       0.8rem;
+  color:           var(--or);
+  text-decoration: none;
+  font-weight:     600;
+  opacity:         0.8;
+  transition:      opacity 0.2s;
+}
+.lire:hover {
+  opacity: 1;
+}
+
+/* --------------------------- Filtres --------------------------- */
+
+.filtres {
+  display:   flex;
+  gap:       0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filtre {
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.75rem;
+  padding:        0.4rem 1rem;
+  border-radius:  999px;
+  border:         0.5px solid var(--bordure);
+  background:     transparent;
+  color:          var(--muted);
+  cursor:         pointer;
+  transition:     border-color 0.2s, color 0.2s, background 0.2s;
+}
+.filtre:hover {
+  border-color: var(--or);
+  color:        var(--or);
+}
+
+/* Filtre actif — fond doré */
+.filtreActif {
+  background:   rgba(221, 168, 83, 0.1);
+  border-color: var(--or);
+  color:        var(--or);
+}
+
+/* Compteur d'articles */
+.count {
+  font-family:   'JetBrains Mono', monospace;
+  font-size:     0.75rem;
+  color:         var(--muted);
+  margin-bottom: 1.25rem;
+}

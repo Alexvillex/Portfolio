@@ -62,25 +62,23 @@ export default function Contact() {
           </div>
 
           {/* --------------------------- Formulaire --------------------------- */}
-          {/* TODO : brancher un service d'envoi (Resend) */}
-          <form className={styles.form}>
+        <form action="https://formspree.io/f//xabcdefg" method="POST" className={styles.form}>
             <div className={styles.field}>
               <label className={styles.fieldLabel}>Nom</label>
-              <input type="text" placeholder="Votre nom" className={styles.input} />
+              <input type="text" name="nom" placeholder="Votre nom" className={styles.input} required />
             </div>
             <div className={styles.field}>
               <label className={styles.fieldLabel}>Email</label>
-              <input type="email" placeholder="votre@email.com" className={styles.input} />
+              <input type="email" name="email" placeholder="votre@email.com" className={styles.input} required />
             </div>
             <div className={styles.field}>
               <label className={styles.fieldLabel}>Message</label>
-              <textarea placeholder="Votre message..." className={styles.textarea} rows={6} />
+              <textarea name="message" placeholder="Votre message..." className={styles.textarea} rows={6} required />
             </div>
             <button type="submit" className={styles.btnSubmit}>
               Envoyer le message
             </button>
           </form>
-
         </div>
       </section>
     </main>
