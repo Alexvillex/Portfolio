@@ -57,16 +57,16 @@ export default function Home() {
       {/* ========== STATS ========== */}
       <div className={styles.statsBar}>
         <div className={styles.statItem}>
-          <span className={styles.statNum}>5+</span>
+          <span className={styles.statNum}>2+</span>
           <span className={styles.statLabel}>Années d&apos;expérience</span>
         </div>
         <div className={styles.statItem}>
-          <span className={styles.statNum}>12+</span>
+          <span className={styles.statNum}>5</span>
           <span className={styles.statLabel}>Projets livrés</span>
         </div>
         <div className={styles.statItem}>
           <span className={styles.statNum}>8</span>
-          <span className={styles.statLabel}>Technologies maîtrisées</span>
+          <span className={styles.statLabel}>Technologies</span>
         </div>
         <div className={styles.statItem}>
           <span className={styles.statNum}>Bac+5</span>
