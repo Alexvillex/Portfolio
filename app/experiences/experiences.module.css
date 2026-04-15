@@ -1,93 +1,99 @@
+/* --------------------------- Section --------------------------- */
+
 .section {
   padding: 8rem 4rem 4rem;
-
 }
 
 .label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.8rem;
   letter-spacing: 0.2em;
-  color: var(--or);
-  margin-bottom: 1rem;
+  color:          var(--or);
+  margin-bottom:  1rem;
 }
 
 .titre {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size:      3rem;
+  font-weight:    800;
   letter-spacing: -0.02em;
-  margin-bottom: 3rem;
+  margin-bottom:  3rem;
 }
+
+/* --------------------------- Timeline --------------------------- */
 
 .timeline {
-  display: flex;
+  display:        flex;
   flex-direction: column;
-  gap: 0;
+  gap:            0;
 }
 
+/* Chaque ligne de la timeline — grille date | contenu */
 .timelineItem {
-  display: grid;
+  display:               grid;
   grid-template-columns: 160px 1fr;
-  gap: 2rem;
-  padding: 2rem 0;
-  border-top: 0.5px solid var(--bordure);
+  gap:                   2rem;
+  padding:               2rem 0;
+  border-top:            0.5px solid var(--bordure);
 }
-
 .timelineItem:last-child {
   border-bottom: 0.5px solid var(--bordure);
 }
 
+/* Date en monospace discret */
 .timelineDate {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  color: var(--muted);
+  font-size:   0.8rem;
+  color:       var(--muted);
   padding-top: 4px;
 }
 
+/* --------------------------- Contenu de l'expérience --------------------------- */
+
 .timelineContent h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size:     1.2rem;
+  font-weight:   700;
   margin-bottom: 0.25rem;
 }
 
+/* Entreprise + type de contrat en doré */
 .company {
-  font-size: 0.9rem;
-  color: var(--or);
+  font-size:     0.9rem;
+  color:         var(--or);
   margin-bottom: 0.75rem;
 }
 
-.desc {
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.descList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.descList li {
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
+/* --------------------------- Tags --------------------------- */
 
 .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           0.5rem;
   margin-bottom: 0.75rem;
 }
 
 .tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  padding: 2px 10px;
+  font-family:   'JetBrains Mono', monospace;
+  font-size:     0.75rem;
+  padding:       2px 10px;
   border-radius: 999px;
-  border: 0.5px solid var(--bordure);
-  color: var(--muted);
+  border:        0.5px solid var(--bordure);
+  color:         var(--muted);
 }
+
+/* --------------------------- Liste des missions --------------------------- */
+
+.descList {
+  list-style:     none;
+  padding:        0;
+  margin:         0;
+  display:        flex;
+  flex-direction: column;
+  gap:            0.4rem;
+}
+
+.descList li {
+  font-size:   0.9rem;
+  color:       var(--muted);
+  line-height: 1.6;
+}
+

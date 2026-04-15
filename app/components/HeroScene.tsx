@@ -1,7 +1,36 @@
 'use client'
 
+// --------------------------- HeroScene ---------------------------
+// Scène Three.js en fond fixe
+// Particules multicolores + constellation (lignes entre points proches)
+// Charte Sunset Gold : or #DDA853 · rose #EC4899 · indigo #6366F1
+// Disparition progressive au scroll
+// -----------------------------------------------------------------
+
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
+
+// --------------------------- Types ---------------------------
+
+interface ParticlePoint {
+  x: number
+  y: number
+  z: number
+}
+
+// --------------------------- Constantes ---------------------------
+
+const PARTICLE_COUNT  = 800
+const MAX_DIST_LINES  = 2.5   // Distance max pour tracer une ligne de constellation
+const SCROLL_FADE_END = 400   // Scroll en px auquel les particules disparaissent complètement
+
+const COLORS = [
+  new THREE.Color(0xDDA853), // or
+  new THREE.Color(0xEC4899), // rose
+  new THREE.Color(0x6366F1), // indigo
+]
+
+// --------------------------- Composant ---------------------------
 
 export default function HeroScene() {
   const mountRef = useRef<HTMLDivElement>(null)
@@ -10,100 +39,111 @@ export default function HeroScene() {
     const mount = mountRef.current
     if (!mount) return
 
-    const scene = new THREE.Scene()
+    // Scène & caméra
+    const scene  = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(75, mount.clientWidth / mount.clientHeight, 0.1, 1000)
     camera.position.z = 6
 
+    // Renderer transparent (alpha) pour superposition sur le fond CSS
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     renderer.setSize(mount.clientWidth, mount.clientHeight)
     renderer.setPixelRatio(window.devicePixelRatio)
     mount.appendChild(renderer.domElement)
 
-    // Groupe fusée
-    const rocket = new THREE.Group()
+    // --------------------------- Particules ---------------------------
 
-    // Corps
-    const bodyGeo = new THREE.CylinderGeometry(0.3, 0.3, 2, 16)
-    const bodyMat = new THREE.MeshBasicMaterial({ color: 0xDDA853, wireframe: true, transparent: true, opacity: 0.6 })
-    const body = new THREE.Mesh(bodyGeo, bodyMat)
-    rocket.add(body)
+    const positions:    number[]        = []
+    const colors:       number[]        = []
+    const particleData: ParticlePoint[] = []
 
-    // Nez
-    const noseGeo = new THREE.ConeGeometry(0.3, 0.8, 16)
-    const noseMat = new THREE.MeshBasicMaterial({ color: 0xEC4899, wireframe: true, transparent: true, opacity: 0.6 })
-    const nose = new THREE.Mesh(noseGeo, noseMat)
-    nose.position.y = 1.4
-    rocket.add(nose)
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const x = (Math.random() - 0.5) * 20
+      const y = (Math.random() - 0.5) * 20
+      const z = (Math.random() - 0.5) * 10
 
-    // Ailes
-    const wingShape = new THREE.Shape()
-    wingShape.moveTo(0, 0)
-    wingShape.lineTo(0.6, -0.8)
-    wingShape.lineTo(0, -0.8)
-    wingShape.lineTo(0, 0)
+      positions.push(x, y, z)
+      particleData.push({ x, y, z })
 
-    const wingGeo = new THREE.ShapeGeometry(wingShape)
-    const wingMat = new THREE.MeshBasicMaterial({ color: 0x6366F1, transparent: true, opacity: 0.5, side: THREE.DoubleSide })
-
-    for (let i = 0; i < 4; i++) {
-      const wing = new THREE.Mesh(wingGeo, wingMat)
-      wing.position.y = -1
-      wing.rotation.y = (Math.PI / 2) * i
-      wing.position.x = Math.sin((Math.PI / 2) * i) * 0.3
-      wing.position.z = Math.cos((Math.PI / 2) * i) * 0.3
-      rocket.add(wing)
+      // Couleur aléatoire parmi les 3 de la charte
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)]
+      colors.push(color.r, color.g, color.b)
     }
 
-    // Tuyère
-    const nozzleGeo = new THREE.CylinderGeometry(0.15, 0.25, 0.3, 16)
-    const nozzleMat = new THREE.MeshBasicMaterial({ color: 0x6366F1, wireframe: true, transparent: true, opacity: 0.5 })
-    const nozzle = new THREE.Mesh(nozzleGeo, nozzleMat)
-    nozzle.position.y = -1.15
-    rocket.add(nozzle)
+    const particleGeo = new THREE.BufferGeometry()
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(positions), 3))
+    particleGeo.setAttribute('color',    new THREE.BufferAttribute(new Float32Array(colors), 3))
 
-    rocket.position.set(2.5, 0, 0)
-    rocket.rotation.z = -0.3
-    scene.add(rocket)
+    const particleMat = new THREE.PointsMaterial({
+      size: 0.05,
+      transparent: true,
+      opacity: 0.7,
+      vertexColors: true,
+      sizeAttenuation: true,
+    })
 
-    // Particules
-    const geometry = new THREE.BufferGeometry()
-    const count = 800
-    const positions = new Float32Array(count * 3)
-    for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 20
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 20
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 10
-    }
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
-    const particleMat = new THREE.PointsMaterial({ color: 0xDDA853, size: 0.04, transparent: true, opacity: 0.5, sizeAttenuation: true })
-    const particles = new THREE.Points(geometry, particleMat)
+    const particles = new THREE.Points(particleGeo, particleMat)
     scene.add(particles)
 
-    // Scroll — disparition
+    // --------------------------- Constellation ---------------------------
+
+    const linePositions: number[] = []
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      for (let j = i + 1; j < PARTICLE_COUNT; j++) {
+        const dx   = particleData[i].x - particleData[j].x
+        const dy   = particleData[i].y - particleData[j].y
+        const dz   = particleData[i].z - particleData[j].z
+        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz)
+
+        if (dist < MAX_DIST_LINES) {
+          linePositions.push(
+            particleData[i].x, particleData[i].y, particleData[i].z,
+            particleData[j].x, particleData[j].y, particleData[j].z
+          )
+        }
+      }
+    }
+
+    const lineGeo = new THREE.BufferGeometry()
+    lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3))
+
+    const lineMat = new THREE.LineBasicMaterial({
+      color: 0xDDA853,
+      transparent: true,
+      opacity: 0.08,
+    })
+
+    const lines = new THREE.LineSegments(lineGeo, lineMat)
+    scene.add(lines)
+
+    // --------------------------- Scroll ---------------------------
+
     let scrollY = 0
     const handleScroll = () => { scrollY = window.scrollY }
     window.addEventListener('scroll', handleScroll)
 
+    // --------------------------- Animation ---------------------------
+
     let animId: number
+
     const animate = () => {
       animId = requestAnimationFrame(animate)
 
-      // Disparition au scroll
-      const opacity = Math.max(0, 1 - scrollY / 300)
-      bodyMat.opacity = opacity * 0.6
-      noseMat.opacity = opacity * 0.6
-      wingMat.opacity = opacity * 0.5
-      nozzleMat.opacity = opacity * 0.5
-      particleMat.opacity = opacity * 0.5
+      // Opacité inversement proportionnelle au scroll
+      const opacity       = Math.max(0, 1 - scrollY / SCROLL_FADE_END)
+      particleMat.opacity = opacity * 0.7
+      lineMat.opacity     = opacity * 0.08
 
-      // Fusée monte au scroll
-      rocket.position.y = scrollY * 0.01
-
-      rocket.rotation.y += 0.005
+      // Rotation lente pour donner vie à la scène
       particles.rotation.y += 0.0003
+      lines.rotation.y     += 0.0003
+
       renderer.render(scene, camera)
     }
+
     animate()
+
+    // --------------------------- Resize ---------------------------
 
     const handleResize = () => {
       if (!mount) return
@@ -111,7 +151,10 @@ export default function HeroScene() {
       camera.updateProjectionMatrix()
       renderer.setSize(mount.clientWidth, mount.clientHeight)
     }
+
     window.addEventListener('resize', handleResize)
+
+    // --------------------------- Cleanup ---------------------------
 
     return () => {
       cancelAnimationFrame(animId)
@@ -122,16 +165,17 @@ export default function HeroScene() {
     }
   }, [])
 
+  // Div conteneur — position fixed, couvre toute la page, non interactif
   return (
     <div
       ref={mountRef}
       style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 0,
+        position:      'fixed',
+        top:           0,
+        left:          0,
+        width:         '100%',
+        height:        '100%',
+        zIndex:        0,
         pointerEvents: 'none',
       }}
     />

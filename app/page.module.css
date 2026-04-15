@@ -1,7 +1,11 @@
-/* ===== EXISTANT ===== */
+/* ============================================================
+   page.module.css — Styles de la landing principale
+   Charte : Sunset Gold · #0A0F1E · #DDA853 · #EC4899 · #6366F1
+   ============================================================ */
+
+/* --------------------------- HERO --------------------------- */
+
 .hero {
-    min-height: auto;
-    padding-top: 6rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,11 +14,14 @@
     position: relative;
     overflow: hidden;
 }
+
 .heroContent {
     flex: 1;
     position: relative;
     z-index: 1;
 }
+
+/* Label eyebrow en monospace doré */
 .label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.1rem;
@@ -22,6 +29,7 @@
     color: var(--or);
     margin-bottom: 1rem;
 }
+
 .h1 {
     font-size: 6rem;
     font-weight: 800;
@@ -29,6 +37,8 @@
     letter-spacing: -0.03em;
     margin-bottom: 0.5rem;
 }
+
+/* Titre dégradé or → rose */
 .heroTitre {
     font-size: 1.2rem;
     background: linear-gradient(90deg, var(--or), var(--rose));
@@ -37,17 +47,24 @@
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
+
 .accroche {
     color: var(--muted);
     font-size: 1rem;
     max-width: 480px;
     margin-bottom: 2rem;
+    line-height: 1.7;
 }
+
+/* Groupe de boutons CTA */
 .liens {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
+
+/* --------------------------- BOUTONS --------------------------- */
+
 .btnSecondary {
     text-decoration: none;
     padding: 0.6rem 1.5rem;
@@ -62,6 +79,7 @@
     border-color: var(--or);
     color: var(--or);
 }
+
 .btnPrimary {
     text-decoration: none;
     padding: 0.6rem 1.5rem;
@@ -75,12 +93,16 @@
 .btnPrimary:hover {
     opacity: 0.85;
 }
+
+/* --------------------------- HERO IMAGE + BADGE --------------------------- */
+
 .heroImage {
     flex: 1;
     display: flex;
     justify-content: center;
     position: relative;
 }
+
 .heroImage img {
     width: 100%;
     max-width: 420px;
@@ -89,6 +111,45 @@
     border-radius: 16px;
     border: 0.5px solid var(--bordure);
 }
+
+/* Badge "Disponible" positionné sous la photo */
+.heroBadge {
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    background: var(--surface);
+    border: 0.5px solid var(--bordure);
+    border-radius: 14px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Point vert animé */
+.badgeDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    flex-shrink: 0;
+}
+
+.badgeText {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--texte);
+}
+
+.badgeSub {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* --------------------------- FORMES DÉCORATIVES ANIMÉES --------------------------- */
+
 .shape1 {
     position: absolute;
     width: 80px;
@@ -100,6 +161,7 @@
     animation: float 8s ease-in-out infinite;
     transform: rotate(20deg);
 }
+
 .shape2 {
     position: absolute;
     width: 50px;
@@ -111,6 +173,7 @@
     left: 65%;
     animation: float 10s ease-in-out infinite reverse;
 }
+
 .shape3 {
     position: absolute;
     width: 60px;
@@ -121,6 +184,7 @@
     animation: float 12s ease-in-out infinite;
     transform: rotate(45deg);
 }
+
 .shape4 {
     position: absolute;
     width: 30px;
@@ -133,25 +197,39 @@
     animation: float 9s ease-in-out infinite;
     transform: rotate(10deg);
 }
+
 @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
-    50% { transform: translateY(-20px) rotate(var(--rot, 0deg)); }
+    50%       { transform: translateY(-20px) rotate(var(--rot, 0deg)); }
 }
+
+/* --------------------------- SECTIONS GÉNÉRIQUES --------------------------- */
+
 .section {
     padding: 4rem;
 }
+
 .sectionTitre {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 2.5rem;
     letter-spacing: -0.02em;
 }
+
+/* Fond légèrement plus clair pour alterner les sections */
+.sectionDark {
+    background: var(--surface);
+}
+
+/* --------------------------- COMPÉTENCES - TAGS --------------------------- */
+
 .tagsGrid {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
 }
+
 .tag {
     padding: 0.5rem 1.25rem;
     border-radius: 999px;
@@ -167,45 +245,15 @@
     color: var(--or);
 }
 
-/* ===== HERO BADGE ===== */
-.heroBadge {
-    position: absolute;
-    bottom: -16px;
-    left: 0;
-    background: var(--surface);
-    border: 0.5px solid var(--bordure);
-    border-radius: 14px;
-    padding: 0.75rem 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-.badgeDot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
-    flex-shrink: 0;
-}
-.badgeText {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--texte);
-}
-.badgeSub {
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
-}
+/* --------------------------- STATS BAR --------------------------- */
 
-/* ===== STATS BAR ===== */
 .statsBar {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     border-top: 0.5px solid var(--bordure);
     border-bottom: 0.5px solid var(--bordure);
 }
+
 .statItem {
     padding: 2rem;
     text-align: center;
@@ -217,6 +265,7 @@
 .statItem:last-child {
     border-right: none;
 }
+
 .statNum {
     font-size: 2.25rem;
     font-weight: 800;
@@ -224,6 +273,7 @@
     letter-spacing: -0.03em;
     line-height: 1;
 }
+
 .statLabel {
     font-size: 11px;
     color: var(--muted);
@@ -232,13 +282,15 @@
     font-family: 'JetBrains Mono', monospace;
 }
 
-/* ===== À PROPOS ===== */
+/* --------------------------- À PROPOS --------------------------- */
+
 .aboutGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
 }
+
 .aboutText p {
     color: var(--muted);
     font-size: 0.95rem;
@@ -249,6 +301,8 @@
     color: var(--texte);
     font-weight: 600;
 }
+
+/* Citation mise en avant */
 .aboutQuote {
     border-left: 2px solid var(--or);
     padding-left: 1.25rem;
@@ -258,17 +312,21 @@
     font-size: 1rem;
     line-height: 1.65;
 }
+
+/* Grille de compétences catégorisées */
 .aboutSkills {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
 }
+
 .skillRow {
     background: var(--surface);
     border: 0.5px solid var(--bordure);
     border-radius: 12px;
     padding: 1rem 1.25rem;
 }
+
 .skillRowLabel {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -276,11 +334,14 @@
     letter-spacing: 0.08em;
     margin-bottom: 0.65rem;
 }
+
 .skillTags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
 }
+
+/* Tag or (backend) */
 .skillTag {
     background: rgba(221, 168, 83, 0.08);
     border: 0.5px solid rgba(221, 168, 83, 0.2);
@@ -290,19 +351,21 @@
     border-radius: 999px;
     font-family: 'JetBrains Mono', monospace;
 }
+
+/* Tag rose (frontend) */
 .skillTagRose {
     background: rgba(236, 72, 153, 0.08);
     border-color: rgba(236, 72, 153, 0.25);
 }
+
+/* Tag indigo (outils & IA) */
 .skillTagIndigo {
     background: rgba(99, 102, 241, 0.08);
     border-color: rgba(99, 102, 241, 0.25);
 }
 
-/* ===== PROJETS ===== */
-.sectionDark {
-    background: var(--surface);
-}
+/* --------------------------- PROJETS FEATURED --------------------------- */
+
 .projectsHeader {
     display: flex;
     justify-content: space-between;
@@ -312,11 +375,13 @@
 .projectsHeader .sectionTitre {
     margin-bottom: 0;
 }
+
 .projectsGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
 }
+
 .projectCard {
     background: var(--fond);
     border: 0.5px solid var(--bordure);
@@ -330,9 +395,12 @@
     border-color: rgba(221, 168, 83, 0.4);
     transform: translateY(-3px);
 }
+
+/* Carte mise en avant — bordure or subtile */
 .projectCardFeatured {
     border-color: rgba(221, 168, 83, 0.3);
 }
+
 .featuredBadge {
     position: absolute;
     top: 1.25rem;
@@ -346,6 +414,8 @@
     padding: 0.25rem 0.65rem;
     border-radius: 999px;
 }
+
+/* Catégorie du projet avec point décoratif */
 .projectTag {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -366,24 +436,29 @@
     opacity: 0.6;
     flex-shrink: 0;
 }
+
 .projectTitle {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.6rem;
     letter-spacing: -0.01em;
 }
+
 .projectDesc {
     font-size: 13px;
     color: var(--muted);
     line-height: 1.65;
     margin-bottom: 1.25rem;
 }
+
+/* Stack technique — badges indigo */
 .projectStack {
     display: flex;
     flex-wrap: wrap;
     gap: 0.35rem;
     margin-bottom: 1.25rem;
 }
+
 .stackBadge {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -393,10 +468,13 @@
     padding: 0.2rem 0.55rem;
     border-radius: 999px;
 }
+
+/* Liens GitHub / Demo */
 .projectLinks {
     display: flex;
     gap: 1rem;
 }
+
 .projectLink {
     font-size: 12px;
     color: var(--or);
@@ -412,12 +490,15 @@
     opacity: 1;
 }
 
-/* ===== CTA CONTACT ===== */
+/*  --------------------------- CTA CONTACT  --------------------------- */
+
 .ctaSection {
     text-align: center;
     position: relative;
     overflow: hidden;
 }
+
+/* Halo doré centré en fond */
 .ctaSection::before {
     content: '';
     position: absolute;
@@ -429,12 +510,14 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
+
 .ctaInner {
     position: relative;
     z-index: 1;
     max-width: 640px;
     margin: 0 auto;
 }
+
 .ctaTitle {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
@@ -442,17 +525,21 @@
     margin-bottom: 1rem;
     line-height: 1.1;
 }
+
+/* Mot accentué en dégradé or → rose */
 .ctaTitleAccent {
     background: linear-gradient(90deg, var(--or), var(--rose));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .ctaDesc {
     color: var(--muted);
     font-size: 1rem;
     margin-bottom: 2.5rem;
     line-height: 1.75;
 }
+
 .ctaRow {
     display: flex;
     gap: 1rem;
@@ -460,6 +547,8 @@
     flex-wrap: wrap;
     margin-bottom: 3rem;
 }
+
+/* Infos de contact rapides */
 .contactInfoRow {
     display: flex;
     gap: 2.5rem;
@@ -468,12 +557,14 @@
     padding-top: 2.5rem;
     border-top: 0.5px solid var(--bordure);
 }
+
 .contactItem {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
 }
+
 .contactLabel {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -481,11 +572,14 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
+
 .contactValue {
     font-size: 14px;
     font-weight: 600;
     color: var(--texte);
 }
+
+/* Statut "Ouvert aux offres" en vert */
 .contactValueGreen {
     color: #22c55e;
 }

@@ -1,140 +1,137 @@
+/* --------------------------- Section --------------------------- */
+
 .section {
-  padding: 8rem 4rem 4rem;
+  padding:  8rem 4rem 4rem;
   position: relative;
-  z-index: 1;
+  z-index:  1;
 }
 
 .label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.8rem;
   letter-spacing: 0.2em;
-  color: var(--or);
-  margin-bottom: 1rem;
+  color:          var(--or);
+  margin-bottom:  1rem;
 }
 
 .titre {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size:      3rem;
+  font-weight:    800;
   letter-spacing: -0.02em;
-  margin-bottom: 3rem;
+  margin-bottom:  3rem;
 }
 
+/* --------------------------- Grille principale --------------------------- */
+
+/* 2 colonnes : infos gauche · formulaire droite */
 .grid {
-  display: grid;
+  display:               grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap:                   4rem;
 }
+
+/* --------------------------- Infos de contact --------------------------- */
 
 .intro {
-  font-size: 1rem;
-  color: var(--muted);
-  line-height: 1.7;
+  font-size:     1rem;
+  color:         var(--muted);
+  line-height:   1.7;
   margin-bottom: 2rem;
-  max-width: 400px;
+  max-width:     400px;
 }
 
 .liens {
-  display: flex;
+  display:        flex;
   flex-direction: column;
-  gap: 0;
+  gap:            0;
 }
 
+/* Ligne de contact — séparateurs fins */
 .lien {
-  display: flex;
+  display:        flex;
   flex-direction: column;
-  padding: 1rem 0;
-  border-top: 0.5px solid var(--bordure);
+  padding:        1rem 0;
+  border-top:     0.5px solid var(--bordure);
   text-decoration: none;
-  transition: border-color 0.2s;
+  transition:     border-color 0.2s;
 }
-
 .lien:last-child {
   border-bottom: 0.5px solid var(--bordure);
 }
-
 .lien:hover .lienValeur {
   color: var(--or);
 }
 
 .lienLabel {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--muted);
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.75rem;
+  color:          var(--muted);
   letter-spacing: 0.1em;
-  margin-bottom: 4px;
+  margin-bottom:  4px;
 }
 
 .lienValeur {
-  font-size: 0.95rem;
-  color: var(--texte);
+  font-size:  0.95rem;
+  color:      var(--texte);
   transition: color 0.2s;
 }
 
+/* --------------------------- Formulaire --------------------------- */
+
 .form {
-  display: flex;
+  display:        flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap:            1.25rem;
 }
 
 .field {
-  display: flex;
+  display:        flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap:            0.5rem;
 }
 
 .fieldLabel {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.75rem;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color:          var(--muted);
 }
 
-.input {
-  background: var(--surface);
-  border: 0.5px solid var(--bordure);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  color: var(--texte);
-  font-size: 0.9rem;
-  font-family: 'Inter', sans-serif;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.input:focus {
-  border-color: var(--or);
-}
-
+/* Styles communs input + textarea */
+.input,
 .textarea {
-  background: var(--surface);
-  border: 0.5px solid var(--bordure);
+  background:  var(--surface);
+  border:      0.5px solid var(--bordure);
   border-radius: 8px;
-  padding: 0.75rem 1rem;
-  color: var(--texte);
-  font-size: 0.9rem;
+  padding:     0.75rem 1rem;
+  color:       var(--texte);
+  font-size:   0.9rem;
   font-family: 'Inter', sans-serif;
-  outline: none;
-  resize: vertical;
-  transition: border-color 0.2s;
+  outline:     none;
+  transition:  border-color 0.2s;
 }
-
+.input:focus,
 .textarea:focus {
   border-color: var(--or);
 }
 
-.btnSubmit {
-  padding: 0.75rem 2rem;
-  border-radius: 8px;
-  background: linear-gradient(90deg, var(--or), var(--rose));
-  color: var(--fond);
-  font-size: 0.9rem;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  align-self: flex-start;
+.textarea {
+  resize: vertical;
 }
 
+/* Bouton d'envoi — dégradé or → rose */
+.btnSubmit {
+  padding:      0.75rem 2rem;
+  border-radius: 8px;
+  background:   linear-gradient(90deg, var(--or), var(--rose));
+  color:        var(--fond);
+  font-size:    0.9rem;
+  font-weight:  700;
+  border:       none;
+  cursor:       pointer;
+  transition:   opacity 0.2s;
+  align-self:   flex-start;
+}
 .btnSubmit:hover {
   opacity: 0.85;
 }

@@ -1,133 +1,147 @@
+/* --------------------------- Section --------------------------- */
+
 .section {
-  padding: 8rem 4rem 4rem;
+  padding:  8rem 4rem 4rem;
   position: relative;
-  z-index: 1;
+  z-index:  1;
 }
 
 .label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.8rem;
   letter-spacing: 0.2em;
-  color: var(--or);
-  margin-bottom: 1rem;
+  color:          var(--or);
+  margin-bottom:  1rem;
 }
 
 .titre {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size:      3rem;
+  font-weight:    800;
   letter-spacing: -0.02em;
-  margin-bottom: 3rem;
+  margin-bottom:  3rem;
 }
 
+/* --------------------------- Grille de cartes --------------------------- */
+
 .grid {
-  display: grid;
+  display:               grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap:                   1.5rem;
 }
 
 .card {
-  background: var(--surface);
-  border: 0.5px solid var(--bordure);
-  border-radius: 12px;
-  padding: 1.5rem;
-  display: flex;
+  background:     var(--surface);
+  border:         0.5px solid var(--bordure);
+  border-radius:  12px;
+  padding:        1.5rem;
+  display:        flex;
   flex-direction: column;
-  gap: 0.75rem;
-  transition: border-color 0.2s;
+  gap:            0.75rem;
+  transition:     border-color 0.2s;
 }
-
 .card:hover {
   border-color: var(--or);
 }
 
+/* --------------------------- En-tête de carte --------------------------- */
+
 .cardHeader {
-  display: flex;
+  display:         flex;
   justify-content: space-between;
-  align-items: center;
+  align-items:     center;
 }
 
+/* Catégorie du projet en monospace doré */
 .type {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--or);
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.75rem;
+  color:          var(--or);
   letter-spacing: 0.1em;
 }
 
+/* Badge statut — Terminé / En cours */
 .statut {
-  font-size: 0.75rem;
-  padding: 2px 10px;
+  font-size:     0.75rem;
+  padding:       2px 10px;
   border-radius: 999px;
-  background: rgba(221, 168, 83, 0.1);
-  color: var(--or);
-  border: 0.5px solid var(--or);
+  background:    rgba(221, 168, 83, 0.1);
+  color:         var(--or);
+  border:        0.5px solid var(--or);
 }
 
+/* --------------------------- Contenu de carte --------------------------- */
+
 .cardTitre {
-  font-size: 1.3rem;
+  font-size:   1.3rem;
   font-weight: 700;
 }
 
+/* Tagline courte en italique */
 .tagline {
-  font-size: 0.95rem;
-  color: var(--texte);
+  font-size:  0.95rem;
+  color:      var(--texte);
   font-style: italic;
 }
 
 .description {
-  font-size: 0.875rem;
-  color: var(--muted);
+  font-size:   0.875rem;
+  color:       var(--muted);
   line-height: 1.7;
-  flex: 1;
+  flex:        1;
 }
 
+/* --------------------------- Tags stack technique --------------------------- */
+
 .tags {
-  display: flex;
+  display:   flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap:       0.5rem;
 }
 
 .tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  padding: 2px 10px;
-  border-radius: 999px;
-  border: 0.5px solid var(--bordure);
-  color: var(--muted);
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.75rem;
+  padding:        2px 10px;
+  border-radius:  999px;
+  border:         0.5px solid var(--bordure);
+  color:          var(--muted);
 }
 
+/* --------------------------- Boutons de liens --------------------------- */
+
 .liens {
-  display: flex;
-  gap: 0.75rem;
+  display:    flex;
+  gap:        0.75rem;
   margin-top: 0.5rem;
 }
 
+/* Bouton GitHub — contour neutre */
 .btnGithub {
   text-decoration: none;
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  border: 0.5px solid var(--bordure);
-  background: transparent;
-  color: var(--texte);
-  font-size: 0.85rem;
-  transition: border-color 0.2s;
+  padding:         0.5rem 1.25rem;
+  border-radius:   8px;
+  border:          0.5px solid var(--bordure);
+  background:      transparent;
+  color:           var(--texte);
+  font-size:       0.85rem;
+  transition:      border-color 0.2s, color 0.2s;
 }
-
 .btnGithub:hover {
   border-color: var(--or);
-  color: var(--or);
+  color:        var(--or);
 }
 
+/* Bouton Demo — dégradé or → rose */
 .btnDemo {
   text-decoration: none;
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  background: linear-gradient(90deg, var(--or), var(--rose));
-  color: var(--fond);
-  font-size: 0.85rem;
-  font-weight: 700;
-  transition: opacity 0.2s;
+  padding:         0.5rem 1.25rem;
+  border-radius:   8px;
+  background:      linear-gradient(90deg, var(--or), var(--rose));
+  color:           var(--fond);
+  font-size:       0.85rem;
+  font-weight:     700;
+  transition:      opacity 0.2s;
 }
-
 .btnDemo:hover {
   opacity: 0.85;
 }
