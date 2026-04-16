@@ -38,25 +38,26 @@ export default function Veille() {
 useEffect(() => {
   const controller = new AbortController()
 
-  setLoading(true)
-  setErreur(false)
+  const charger = async () => {
+    setLoading(true)
+    setErreur(false)
 
-  const url = categorie === 'Tout'
-    ? `${API_URL}/articles?limit=20&score_min=6`
-    : `${API_URL}/articles?limit=20&score_min=6&categorie=${encodeURIComponent(categorie)}`
+    const url = categorie === 'Tout'
+      ? `${API_URL}/articles?limit=20&score_min=6`
+      : `${API_URL}/articles?limit=20&score_min=6&categorie=${encodeURIComponent(categorie)}`
 
-  fetch(url, { signal: controller.signal })
-    .then(res => res.json())
-    .then(data => {
+    try {
+      const res  = await fetch(url, { signal: controller.signal })
+      const data = await res.json()
       setArticles(data)
+    } catch (err: any) {
+      if (err.name !== 'AbortError') setErreur(true)
+    } finally {
       setLoading(false)
-    })
-    .catch(err => {
-      if (err.name === 'AbortError') return
-      setErreur(true)
-      setLoading(false)
-    })
+    }
+  }
 
+  charger()
   return () => controller.abort()
 }, [categorie])
 

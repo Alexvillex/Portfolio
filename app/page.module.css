@@ -583,3 +583,160 @@
 .contactValueGreen {
     color: #22c55e;
 }
+
+/* ============================================================
+   RESPONSIVE MOBILE — max-width: 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    /* --- Hero : empilé en colonne, photo en premier sur mobile --- */
+    .hero {
+        flex-direction: column-reverse;
+        padding: 6rem 1.5rem 2.5rem;
+        gap: 2rem;
+        align-items: stretch;
+    }
+
+    .heroContent {
+        text-align: left;
+    }
+
+    .h1 {
+        font-size: 3.25rem;
+    }
+
+    .heroTitre {
+        font-size: 1rem;
+    }
+
+    .accroche {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .liens {
+        flex-direction: column;
+    }
+
+    .btnPrimary,
+    .btnSecondary {
+        text-align: center;
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        box-sizing: border-box;
+    }
+
+    /* Photo pleine largeur, hauteur réduite */
+    .heroImage {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .heroImage img {
+        width: 100%;
+        max-width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 12px;
+    }
+
+    /* Badge repositionné pour ne pas déborder */
+    .heroBadge {
+        bottom: -12px;
+        left: auto;
+        right: 1rem;
+    }
+
+    /* Cacher les formes décoratives sur mobile */
+    .shape1, .shape2, .shape3, .shape4 {
+        display: none;
+    }
+
+    /* --- Stats bar : 2×2 au lieu de 1×4 --- */
+    .statsBar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .statItem {
+        padding: 1.25rem 1rem;
+        border-right: 0.5px solid var(--bordure);
+        border-bottom: 0.5px solid var(--bordure);
+    }
+
+    /* Supprimer les bordures redondantes sur 2×2 */
+    .statItem:nth-child(2) {
+        border-right: none;
+    }
+    .statItem:nth-child(3),
+    .statItem:nth-child(4) {
+        border-bottom: none;
+    }
+    .statItem:nth-child(4) {
+        border-right: none;
+    }
+
+    .statNum {
+        font-size: 1.75rem;
+    }
+
+    /* --- Sections génériques --- */
+    .section {
+        padding: 3rem 1.5rem;
+    }
+
+    .sectionTitre {
+        font-size: 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+
+    /* --- À propos : colonne unique --- */
+    .aboutGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* --- Projets featured : 1 colonne --- */
+    .projectsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .projectsHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* --- CTA Contact --- */
+    .ctaTitle {
+        font-size: 1.75rem;
+    }
+
+    .ctaDesc {
+        font-size: 0.9rem;
+    }
+
+    .ctaRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ctaRow .btnPrimary,
+    .ctaRow .btnSecondary {
+        text-align: center;
+        padding: 0.85rem 1.5rem;
+    }
+
+    .contactInfoRow {
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: flex-start;
+        padding-left: 0.5rem;
+    }
+
+    .contactItem {
+        align-items: flex-start;
+    }
+}

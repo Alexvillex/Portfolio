@@ -1,9 +1,7 @@
 /* --------------------------- Section --------------------------- */
-
 .section {
-  padding: 8rem 4rem 4rem;
+  padding:        8rem 4rem 4rem;
 }
-
 .label {
   font-family:    'JetBrains Mono', monospace;
   font-size:      0.8rem;
@@ -11,7 +9,6 @@
   color:          var(--or);
   margin-bottom:  1rem;
 }
-
 .titre {
   font-size:      3rem;
   font-weight:    800;
@@ -20,7 +17,6 @@
 }
 
 /* --------------------------- Timeline --------------------------- */
-
 .timeline {
   display:        flex;
   flex-direction: column;
@@ -48,7 +44,6 @@
 }
 
 /* --------------------------- Contenu de l'expérience --------------------------- */
-
 .timelineContent h2 {
   font-size:     1.2rem;
   font-weight:   700;
@@ -63,14 +58,12 @@
 }
 
 /* --------------------------- Tags --------------------------- */
-
 .tags {
   display:       flex;
   flex-wrap:     wrap;
   gap:           0.5rem;
   margin-bottom: 0.75rem;
 }
-
 .tag {
   font-family:   'JetBrains Mono', monospace;
   font-size:     0.75rem;
@@ -81,7 +74,6 @@
 }
 
 /* --------------------------- Liste des missions --------------------------- */
-
 .descList {
   list-style:     none;
   padding:        0;
@@ -90,10 +82,65 @@
   flex-direction: column;
   gap:            0.4rem;
 }
-
 .descList li {
   font-size:   0.9rem;
   color:       var(--muted);
   line-height: 1.6;
+  padding-left: 1rem;
+  position:     relative;
+}
+/* Puce minimaliste */
+.descList li::before {
+  content:    '–';
+  position:   absolute;
+  left:       0;
+  color:      var(--or);
+  opacity:    0.5;
 }
 
+/* ============================================================
+   RESPONSIVE MOBILE — max-width: 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  .section {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .titre {
+    font-size:     2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Timeline : passe en colonne unique, date au-dessus */
+  .timelineItem {
+    grid-template-columns: 1fr;
+    gap:                   0.4rem;
+    padding:               1.5rem 0;
+  }
+
+  /* Date : petite, en haut, alignée à gauche */
+  .timelineDate {
+    font-size:   0.72rem;
+    padding-top: 0;
+    color:       var(--muted);
+    opacity:     0.7;
+  }
+
+  .timelineContent h2 {
+    font-size: 1.05rem;
+  }
+
+  .company {
+    font-size: 0.85rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+  }
+
+  .descList li {
+    font-size: 0.85rem;
+  }
+}

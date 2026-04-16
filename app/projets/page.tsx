@@ -1,13 +1,15 @@
+'use client'
+
 // --------------------------- Page Projets ---------------------------
 // Affiche toutes les réalisations depuis data/projets.json
-// Grille 2 colonnes · Liens GitHub + Demo conditionnels
+// Filtre Dev / Design · Grille responsive · Liens GitHub + Demo
 // --------------------------------------------------------------------
 
+import { useState } from 'react'
 import styles from './projets.module.css'
 import projetsData from '../../data/projets.json'
 
 // --------------------------- Types ---------------------------
-
 interface Projet {
   id:          number
   titre:       string
@@ -15,15 +17,28 @@ interface Projet {
   description: string
   tags:        string[]
   categorie:   string
+  type:        string         // 'dev' | 'design'
   statut:      string
-  github:      string
-  demo:        string
+  github?:     string
+  demo?:       string
+  image?:      string         // chemin optionnel vers un visuel (projets design)
 }
 
-// --------------------------- Composant ---------------------------
+// --------------------------- Filtres ---------------------------
+const FILTRES = [
+  { label: 'Tout',   value: 'all'    },
+  { label: 'Dev',    value: 'dev'    },
+  { label: 'Design', value: 'design' },
+]
 
+// --------------------------- Composant ---------------------------
 export default function Projets() {
   const projets = projetsData as Projet[]
+  const [filtre, setFiltre] = useState<string>('all')
+
+  const projetsFiltres = filtre === 'all'
+    ? projets
+    : projets.filter(p => p.type === filtre)
 
   return (
     <main>
@@ -31,42 +46,72 @@ export default function Projets() {
         <p className={styles.label}>MES RÉALISATIONS</p>
         <h1 className={styles.titre}>Projets</h1>
 
-        <div className={styles.grid}>
-          {projets.map((projet) => (
-            <div key={projet.id} className={styles.card}>
-
-              {/* En-tête — catégorie + statut */}
-              <div className={styles.cardHeader}>
-                <span className={styles.type}>{projet.categorie}</span>
-                <span className={styles.statut}>{projet.statut}</span>
-              </div>
-
-              {/* Contenu principal */}
-              <h2 className={styles.cardTitre}>{projet.titre}</h2>
-              <p className={styles.tagline}>{projet.tagline}</p>
-              <p className={styles.description}>{projet.description}</p>
-
-              {/* Stack technique */}
-              <div className={styles.tags}>
-                {projet.tags.map((tag) => (
-                  <span key={tag} className={styles.tag}>{tag}</span>
-                ))}
-              </div>
-
-              {/* Liens — GitHub toujours présent, Demo conditionnel */}
-              <div className={styles.liens}>
-                <a href={projet.github} target="_blank" rel="noreferrer" className={styles.btnGithub}>
-                  GitHub
-                </a>
-                {projet.demo && (
-                  <a href={projet.demo} target="_blank" rel="noreferrer" className={styles.btnDemo}>
-                    Demo
-                  </a>
-                )}
-              </div>
-
-            </div>
+        {/* Filtres */}
+        <div className={styles.filters}>
+          {FILTRES.map(f => (
+            <button
+              key={f.value}
+              className={`${styles.filterBtn} ${filtre === f.value ? styles.filterBtnActive : ''}`}
+              onClick={() => setFiltre(f.value)}
+            >
+              {f.label}
+            </button>
           ))}
+        </div>
+
+        <div className={styles.grid}>
+          {projetsFiltres.map((projet) => {
+            const isDesign = projet.type === 'design'
+            return (
+              <div
+                key={projet.id}
+                className={`${styles.card} ${isDesign ? styles.cardDesign : ''}`}
+              >
+                {/* Image de preview pour les projets design */}
+                {projet.image && (
+                  <img
+                    src={projet.image}
+                    alt={`Aperçu ${projet.titre}`}
+                    className={styles.cardImage}
+                  />
+                )}
+
+                {/* En-tête — catégorie + statut */}
+                <div className={styles.cardHeader}>
+                  <span className={`${styles.type} ${isDesign ? styles.typeDesign : ''}`}>
+                    {projet.categorie}
+                  </span>
+                  <span className={styles.statut}>{projet.statut}</span>
+                </div>
+
+                {/* Contenu principal */}
+                <h2 className={styles.cardTitre}>{projet.titre}</h2>
+                <p className={styles.tagline}>{projet.tagline}</p>
+                <p className={styles.description}>{projet.description}</p>
+
+                {/* Stack / outils */}
+                <div className={styles.tags}>
+                  {projet.tags.map((tag) => (
+                    <span key={tag} className={styles.tag}>{tag}</span>
+                  ))}
+                </div>
+
+                {/* Liens — GitHub pour dev, Demo/aperçu pour design */}
+                <div className={styles.liens}>
+                  {projet.github && (
+                    <a href={projet.github} target="_blank" rel="noreferrer" className={styles.btnGithub}>
+                      GitHub
+                    </a>
+                  )}
+                  {projet.demo && (
+                    <a href={projet.demo} target="_blank" rel="noreferrer" className={styles.btnDemo}>
+                      {isDesign ? 'Voir le projet' : 'Demo'}
+                    </a>
+                  )}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
     </main>

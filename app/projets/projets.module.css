@@ -1,11 +1,9 @@
 /* --------------------------- Section --------------------------- */
-
 .section {
   padding:  8rem 4rem 4rem;
   position: relative;
   z-index:  1;
 }
-
 .label {
   font-family:    'JetBrains Mono', monospace;
   font-size:      0.8rem;
@@ -13,22 +11,51 @@
   color:          var(--or);
   margin-bottom:  1rem;
 }
-
 .titre {
   font-size:      3rem;
   font-weight:    800;
   letter-spacing: -0.02em;
-  margin-bottom:  3rem;
+  margin-bottom:  2rem;
+}
+
+/* --------------------------- Filtres Dev / Design --------------------------- */
+.filters {
+  display:       flex;
+  gap:           0.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap:     wrap;
+}
+
+.filterBtn {
+  font-family:    'JetBrains Mono', monospace;
+  font-size:      0.8rem;
+  letter-spacing: 0.08em;
+  padding:        0.4rem 1.1rem;
+  border-radius:  999px;
+  border:         0.5px solid var(--bordure);
+  background:     transparent;
+  color:          var(--muted);
+  cursor:         pointer;
+  transition:     border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.filterBtn:hover {
+  border-color: var(--or);
+  color:        var(--or);
+}
+
+.filterBtnActive {
+  background:   rgba(221, 168, 83, 0.12);
+  border-color: var(--or);
+  color:        var(--or);
 }
 
 /* --------------------------- Grille de cartes --------------------------- */
-
 .grid {
   display:               grid;
   grid-template-columns: repeat(2, 1fr);
   gap:                   1.5rem;
 }
-
 .card {
   background:     var(--surface);
   border:         0.5px solid var(--bordure);
@@ -43,20 +70,30 @@
   border-color: var(--or);
 }
 
-/* --------------------------- En-tête de carte --------------------------- */
+/* Carte design — légère teinte rose pour se distinguer */
+.cardDesign {
+  border-color: rgba(236, 72, 153, 0.2);
+}
+.cardDesign:hover {
+  border-color: rgba(236, 72, 153, 0.5);
+}
 
+/* --------------------------- En-tête de carte --------------------------- */
 .cardHeader {
   display:         flex;
   justify-content: space-between;
   align-items:     center;
 }
-
 /* Catégorie du projet en monospace doré */
 .type {
   font-family:    'JetBrains Mono', monospace;
   font-size:      0.75rem;
   color:          var(--or);
   letter-spacing: 0.1em;
+}
+/* Catégorie design — rose */
+.typeDesign {
+  color: var(--rose);
 }
 
 /* Badge statut — Terminé / En cours */
@@ -70,19 +107,16 @@
 }
 
 /* --------------------------- Contenu de carte --------------------------- */
-
 .cardTitre {
   font-size:   1.3rem;
   font-weight: 700;
 }
-
 /* Tagline courte en italique */
 .tagline {
   font-size:  0.95rem;
   color:      var(--texte);
   font-style: italic;
 }
-
 .description {
   font-size:   0.875rem;
   color:       var(--muted);
@@ -90,14 +124,22 @@
   flex:        1;
 }
 
-/* --------------------------- Tags stack technique --------------------------- */
+/* --------------------------- Image design (optionnelle) --------------------------- */
+.cardImage {
+  width:         100%;
+  height:        180px;
+  object-fit:    cover;
+  border-radius: 8px;
+  border:        0.5px solid var(--bordure);
+  margin-bottom: 0.25rem;
+}
 
+/* --------------------------- Tags stack technique --------------------------- */
 .tags {
   display:   flex;
   flex-wrap: wrap;
   gap:       0.5rem;
 }
-
 .tag {
   font-family:    'JetBrains Mono', monospace;
   font-size:      0.75rem;
@@ -108,13 +150,12 @@
 }
 
 /* --------------------------- Boutons de liens --------------------------- */
-
 .liens {
   display:    flex;
   gap:        0.75rem;
   margin-top: 0.5rem;
+  flex-wrap:  wrap;
 }
-
 /* Bouton GitHub — contour neutre */
 .btnGithub {
   text-decoration: none;
@@ -130,7 +171,6 @@
   border-color: var(--or);
   color:        var(--or);
 }
-
 /* Bouton Demo — dégradé or → rose */
 .btnDemo {
   text-decoration: none;
@@ -144,4 +184,66 @@
 }
 .btnDemo:hover {
   opacity: 0.85;
+}
+
+/* ============================================================
+   RESPONSIVE MOBILE — max-width: 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  .section {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .titre {
+    font-size:     2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Filtres : scrollables horizontalement si besoin */
+  .filters {
+    flex-wrap:      nowrap;
+    overflow-x:     auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filterBtn {
+    white-space: nowrap;
+    flex-shrink:  0;
+  }
+
+  /* 1 colonne sur mobile */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .cardTitre {
+    font-size: 1.15rem;
+  }
+
+  .cardImage {
+    height: 160px;
+  }
+
+  .liens {
+    flex-direction: row;
+  }
+
+  .btnGithub,
+  .btnDemo {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 1rem;
+  }
 }
