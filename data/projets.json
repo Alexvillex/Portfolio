@@ -8,6 +8,7 @@
     "categorie": "Mobile",
     "statut": "Terminé",
     "type": "Mobile",
+    "filtre": "dev",
     "github": "https://github.com/Alexvillex/ToDoux",
     "demo": ""
   },
@@ -20,6 +21,7 @@
     "categorie": "Web",
     "statut": "Terminé",
     "type": "Web",
+    "filtre": "dev",
     "github": "https://github.com/Alexvillex/angular-pokedex-app",
     "demo": ""
   },
@@ -32,6 +34,7 @@
     "categorie": "Web",
     "statut": "Terminé",
     "type": "Web",
+    "filtre": "dev",
     "github": "https://github.com/Alexvillex/symfony_app",
     "demo": ""
   },
@@ -44,6 +47,7 @@
     "categorie": "IA",
     "statut": "En cours",
     "type": "IA",
+    "filtre": "dev",
     "github": "https://github.com/Alexvillex",
     "demo": ""
   },
@@ -56,6 +60,7 @@
     "categorie": "Web",
     "statut": "En cours",
     "type": "Web",
+    "filtre": "dev",
     "github": "https://github.com/Alexvillex",
     "demo": "https://portfolio-fqjk.vercel.app/"
   }

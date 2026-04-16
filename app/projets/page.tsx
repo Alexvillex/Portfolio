@@ -17,7 +17,8 @@ interface Projet {
   description: string
   tags:        string[]
   categorie:   string
-  type:        string         // 'dev' | 'design'
+  type:        string
+  filtre:      string   // 'dev' | 'design'
   statut:      string
   github?:     string
   demo?:       string
@@ -38,7 +39,7 @@ export default function Projets() {
 
   const projetsFiltres = filtre === 'all'
     ? projets
-    : projets.filter(p => p.type === filtre)
+    : projets.filter(p => p.filtre === filtre)
 
   return (
     <main>
@@ -61,7 +62,7 @@ export default function Projets() {
 
         <div className={styles.grid}>
           {projetsFiltres.map((projet) => {
-            const isDesign = projet.type === 'design'
+            const isDesign = projet.filtre === 'design'
             return (
               <div
                 key={projet.id}
