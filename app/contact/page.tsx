@@ -62,7 +62,7 @@ export default function Contact() {
           </div>
 
           {/* --------------------------- Formulaire --------------------------- */}
-        <form action="https://formspree.io/f//xabcdefg" method="POST" className={styles.form}>
+        <form action="https://formspree.io/f/xgoroeyg" method="POST" className={styles.form}>
             <div className={styles.field}>
               <label className={styles.fieldLabel}>Nom</label>
               <input type="text" name="nom" placeholder="Votre nom" className={styles.input} required />
