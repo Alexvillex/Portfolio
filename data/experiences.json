@@ -1,13 +1,41 @@
 [
   {
     "id": 1,
+    "poste": "Chef de Projet Digital",
+    "entreprise": "Freelance",
+    "type": "Micro-entrepreneur",
+    "debut": "Jan 2026",
+    "fin": "Aujourd'hui",
+    "annee": 2026,
+    "tags": [
+      "Figma",
+      "Adobe",
+      "Identité visuelle",
+      "Design graphique",
+      "Relation client"
+    ],
+    "description": [
+      "Concevoir des identités visuelles et supports print/digital pour des clients locaux.",
+      "Gérer la relation client de bout en bout — brief, propositions, révisions, livraison.",
+      "Produire des chartes graphiques, présentations et contenus réseaux sociaux.",
+      "Accompagner 3 clients dans leur communication visuelle."
+    ]
+  },
+  {
+    "id": 2,
     "poste": "Chef de Projet Multimédia / Chargé de Communication Interne",
     "entreprise": "Carrier Transicold",
     "type": "Alternance",
     "debut": "Oct 2023",
     "fin": "Sep 2025",
     "annee": 2023,
-    "tags": ["Figma", "Agile", "Adobe", "e-learning", "Communication"],
+    "tags": [
+      "Figma",
+      "Agile",
+      "Adobe",
+      "e-learning",
+      "Communication"
+    ],
     "description": [
       "Créer et adapter plus de 200 visuels digitaux à destination de 2500 techniciens multiculturels.",
       "Produire et publier des newsletters pour 25 formateurs répartis dans le monde.",
@@ -18,14 +46,19 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "poste": "Chef de Projet Digital",
     "entreprise": "Coiff'idis",
     "type": "Alternance",
     "debut": "Août 2022",
     "fin": "Sep 2023",
     "annee": 2022,
-    "tags": ["Prestashop", "SEO", "Gestion de projet", "Marketing"],
+    "tags": [
+      "Prestashop",
+      "SEO",
+      "Gestion de projet",
+      "Marketing"
+    ],
     "description": [
       "Actualiser des informations de la base de données d'environ 1000 produits.",
       "Réaliser un template à destination de 250 partenaires.",
@@ -35,14 +68,19 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "poste": "Développeur Full-Stack",
     "entreprise": "APPePlay Studio",
     "type": "Stage",
     "debut": "Jan 2022",
     "fin": "Fév 2022",
     "annee": 2022,
-    "tags": ["React", "Firebase", "SCSS", "Agile"],
+    "tags": [
+      "React",
+      "Firebase",
+      "SCSS",
+      "Agile"
+    ],
     "description": [
       "Réaliser la partie enregistrement pour l'application Freestyle Drum Machine.",
       "Travailler avec la méthode Agile.",
@@ -51,14 +89,19 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "poste": "Développeur Full-Stack",
     "entreprise": "APPePlay Studio",
     "type": "Stage",
     "debut": "Mai 2021",
     "fin": "Juin 2021",
     "annee": 2021,
-    "tags": ["React", "SCSS", "Firebase", "Agile"],
+    "tags": [
+      "React",
+      "SCSS",
+      "Firebase",
+      "Agile"
+    ],
     "description": [
       "Réaliser un site de vulgarisation pour une association.",
       "Utiliser le langage React pour la conception du site web.",
@@ -67,14 +110,19 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "poste": "Responsable Communication & Rédaction",
     "entreprise": "Club Pongiste Quevillais",
     "type": "Service Civique",
     "debut": "Déc 2021",
     "fin": "Août 2022",
     "annee": 2021,
-    "tags": ["Communication", "Réseaux sociaux", "Adobe", "Canva"],
+    "tags": [
+      "Communication",
+      "Réseaux sociaux",
+      "Adobe",
+      "Canva"
+    ],
     "description": [
       "Mettre en ligne des articles et résultats du week-end sur le site du club.",
       "Créer une ligne éditoriale pour les réseaux sociaux.",

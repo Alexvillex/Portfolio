@@ -2,7 +2,7 @@
 
 // --------------------------- Page Projets ---------------------------
 // Affiche toutes les réalisations depuis data/projets.json
-// Filtre Dev / Design · Grille responsive · Liens GitHub + Demo
+// Filtre Dev / Design · Carrousel intégré · Liens GitHub + Demo
 // --------------------------------------------------------------------
 
 import { useState } from 'react'
@@ -22,7 +22,8 @@ interface Projet {
   statut:      string
   github?:     string
   demo?:       string
-  image?:      string         // chemin optionnel vers un visuel (projets design)
+  image?:      string    // image unique
+  images?:     string[]  // tableau pour le carrousel
 }
 
 // --------------------------- Filtres ---------------------------
@@ -32,7 +33,60 @@ const FILTRES = [
   { label: 'Design', value: 'design' },
 ]
 
-// --------------------------- Composant ---------------------------
+// --------------------------- Sous-composant Carrousel ---------------------------
+function CardCarousel({ projet }: { projet: Projet }) {
+  const allImages: string[] = projet.images
+    ? projet.images
+    : projet.image
+      ? [projet.image]
+      : []
+
+  const [current, setCurrent] = useState(0)
+  const hasCarousel = allImages.length > 1
+
+  if (allImages.length === 0) return null
+
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrent(i => (i - 1 + allImages.length) % allImages.length)
+  }
+
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrent(i => (i + 1) % allImages.length)
+  }
+
+  return (
+    <div className={styles.carousel}>
+      <img
+        src={allImages[current]}
+        alt={`${projet.titre} — visuel ${current + 1}`}
+        className={styles.carouselImg}
+      />
+
+      {hasCarousel && (
+        <>
+          <button className={`${styles.carouselBtn} ${styles.carouselBtnPrev}`} onClick={prev}>‹</button>
+          <button className={`${styles.carouselBtn} ${styles.carouselBtnNext}`} onClick={next}>›</button>
+
+          <div className={styles.dots}>
+            {allImages.map((_, i) => (
+              <button
+                key={i}
+                className={`${styles.dot} ${i === current ? styles.dotActive : ''}`}
+                onClick={(e) => { e.stopPropagation(); setCurrent(i) }}
+              />
+            ))}
+          </div>
+
+          <span className={styles.counter}>{current + 1} / {allImages.length}</span>
+        </>
+      )}
+    </div>
+  )
+}
+
+// --------------------------- Composant principal ---------------------------
 export default function Projets() {
   const projets = projetsData as Projet[]
   const [filtre, setFiltre] = useState<string>('all')
@@ -68,14 +122,8 @@ export default function Projets() {
                 key={projet.id}
                 className={`${styles.card} ${isDesign ? styles.cardDesign : ''}`}
               >
-                {/* Image de preview pour les projets design */}
-                {projet.image && (
-                  <img
-                    src={projet.image}
-                    alt={`Aperçu ${projet.titre}`}
-                    className={styles.cardImage}
-                  />
-                )}
+                {/* Carrousel ou image unique */}
+                <CardCarousel projet={projet} />
 
                 {/* En-tête — catégorie + statut */}
                 <div className={styles.cardHeader}>
@@ -97,7 +145,7 @@ export default function Projets() {
                   ))}
                 </div>
 
-                {/* Liens — GitHub pour dev, Demo/aperçu pour design */}
+                {/* Liens */}
                 <div className={styles.liens}>
                   {projet.github && (
                     <a href={projet.github} target="_blank" rel="noreferrer" className={styles.btnGithub}>

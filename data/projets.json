@@ -10,7 +10,7 @@
     "type": "Mobile",
     "filtre": "dev",
     "github": "https://github.com/Alexvillex/ToDoux",
-    "demo": ""
+    "demo": "https://alexvillex.github.io/ToDoux/"
   },
   {
     "id": 2,
@@ -63,5 +63,118 @@
     "filtre": "dev",
     "github": "https://github.com/Alexvillex",
     "demo": "https://portfolio-fqjk.vercel.app/"
-  }
+  },
+  
+  {
+  "id": 6,
+  "titre": "Twenty One Pilots — Sahlo Folina",
+  "tagline": "Direction artistique inspirée de l'univers crypté du groupe.",
+  "description": "Affiche fictive créée pour la tournée française de Twenty One Pilots. DA radicale : noir profond, rouge, jaune saturé, effets glitch et collages pour traduire l'identité visuelle du groupe — symboles cachés, alter ego, chaos contrôlé.",
+  "tags": ["Direction artistique", "Affiche", "Photoshop", "Illustrator"],
+  "categorie": "Affiche musicale",
+  "type": "Design",
+  "filtre": "design",
+  "statut": "Terminé",
+  "github": "",
+  "demo": "",
+  "image": "/design/twenty-one-pilots.jpg"
+},
+{
+  "id": 7,
+  "titre": "Vortex",
+  "tagline": "Identité visuelle complète pour une marque à fort impact.",
+  "description": "Création du logo et de la charte graphique pour Vortex. Conception d'un univers visuel cohérent déclinable sur tous les supports de communication.",
+  "tags": ["Logo", "Charte graphique", "Illustrator"],
+  "categorie": "Identité de marque",
+  "type": "Design",
+  "filtre": "design",
+  "statut": "Terminé",
+  "github": "",
+  "demo": "",
+  "image": "/design/vortex.jpg"
+},
+{
+  "id": 8,
+  "titre": "1989",
+  "tagline": "Univers visuel inspiré de l'ère pop iconique.",
+  "description": "Projet de direction artistique autour de l'esthétique 1989 — palette rose, typographies rétro-modernes et mise en page éditoriale pour un rendu vintage et contemporain à la fois.",
+  "tags": ["Direction artistique", "Photoshop", "Editorial"],
+  "categorie": "Direction artistique",
+  "type": "Design",
+  "filtre": "design",
+  "statut": "Terminé",
+  "github": "",
+  "demo": "",
+  "image": "/design/1989.jpg"
+},
+{
+  "id": 9,
+  "titre": "La Face B",
+  "tagline": "L'autre côté du disque, mis en image.",
+  "description": "Création d'une identité visuelle pour La Face B, un projet musical alternatif. Logo, couleurs et typographie pensés pour refléter un univers underground et authentique.",
+  "tags": ["Logo", "Identité visuelle", "Illustrator"],
+  "categorie": "Identité de marque",
+  "type": "Design",
+  "filtre": "design",
+  "statut": "Terminé",
+  "github": "",
+  "demo": "",
+  "image": "/design/la-face-b.jpg"
+},
+{
+  "id": 10,
+  "titre": "Arabika",
+  "tagline": "Design chaleureux pour une marque café artisanale.",
+  "description": "Conception de l'identité visuelle d'Arabika, une marque de café. Palette chaude, typographie soignée et visuels évocateurs pour traduire l'authenticité et le savoir-faire artisanal.",
+  "tags": ["Logo", "Packaging", "Illustrator", "Photoshop"],
+  "categorie": "Identité de marque",
+  "type": "Design",
+  "filtre": "design",
+  "statut": "Terminé",
+  "github": "",
+  "demo": "",
+  "image": "/design/arabika.jpg"
+},
+{
+  "id": 11,
+  "titre": "Stop Clope",
+  "tagline": "Communication percutante pour une campagne de prévention.",
+  "description": "Création des visuels pour une campagne de sensibilisation contre le tabac. Approche graphique directe et impactante pour toucher un large public.",
+  "tags": ["Affiche", "Campagne", "Illustrator", "Photoshop"],
+  "categorie": "Communication",
+  "type": "Design",
+  "filtre": "design",
+  "statut": "Terminé",
+  "github": "",
+  "demo": "",
+  "image": "/design/stop-clope.jpg"
+},
+{
+  "id": 12,
+  "titre": "Qwetch",
+  "tagline": "Identité visuelle pour une marque éco-responsable.",
+  "description": "Refonte et déclinaison graphique pour Qwetch, marque spécialisée dans les contenants durables. Visuels pensés pour refléter l'engagement écologique et le design épuré de la marque.",
+  "tags": ["Identité visuelle", "Photoshop", "Illustrator"],
+  "categorie": "Identité de marque",
+  "type": "Design",
+  "filtre": "design",
+  "statut": "Terminé",
+  "github": "",
+  "demo": "",
+  "image": "/design/qwetch.jpg"
+},
+{
+  "id": 13,
+  "titre": "Carrier Transicold",
+  "tagline": "Visuels digitaux pour un leader mondial du transport frigorifique.",
+  "description": "Création et adaptation de plus de 200 visuels digitaux à destination de 2500 techniciens multiculturels. Refonte du design du site e-learning et production de newsletters pour 25 formateurs répartis dans le monde.",
+  "tags": ["Figma", "Adobe", "E-learning", "Communication interne"],
+  "categorie": "Communication corporate",
+  "type": "Design",
+  "filtre": "design",
+  "statut": "Terminé",
+  "github": "",
+  "demo": "",
+  "image": "/design/carrier-transicold.jpg"
+}
 ]
