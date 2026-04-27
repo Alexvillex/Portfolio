@@ -1,7 +1,7 @@
 'use client'
 
 // --------------------------- Page Projets ---------------------------
-// Affiche toutes les réalisations depuis data/projets.json
+// Affiche toutes les réalisations depuis data et projets.json
 // Filtre Dev / Design · Carrousel intégré · Liens GitHub + Demo
 // --------------------------------------------------------------------
 
